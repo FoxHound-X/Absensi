@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\admin_control;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [admin_control::class, 'index']);
