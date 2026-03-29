@@ -1,6 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\admin_control;
+use App\Http\Controllers\AdminControl;
 
-Route::get('/', [admin_control::class, 'index']);
+Route::get('/', [AdminControl::class, 'index']);
