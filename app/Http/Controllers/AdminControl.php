@@ -9,4 +9,8 @@ class AdminControl extends Controller
     public function index(){
         return view('admin')->with('nama','Setia');
     }
+
+    public function jurusan(){
+        
+    }
 }
