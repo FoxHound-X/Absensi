@@ -206,15 +206,6 @@
                                 <button class="btn-icon btn-delete"><i class="fas fa-trash"></i></button>
                             </td>
                         </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Teknik Komputer Jaringan</td>
-                            <td><span class="badge blue">TKJ</span></td>
-                            <td class="text-right">
-                                <button class="btn-icon btn-edit"><i class="fas fa-edit"></i></button>
-                                <button class="btn-icon btn-delete"><i class="fas fa-trash"></i></button>
-                            </td>
-                        </tr>
                     </tbody>
                 </table>
             </div>
