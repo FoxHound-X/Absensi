@@ -40,7 +40,7 @@
             <h3 id="title">Dashboard</h3>
         </div>
         <div class="user-info">
-            <span>{{ $nama }}</span>
+            <span>test</span>
             <div class="avatar"></div>
         </div>
     </div>
@@ -79,7 +79,7 @@
 
         <div class="welcome-card">
             <div class="welcome-text">
-                <h3>Selamat Datang, {{ $nama }}! 👋</h3>
+                <h3>Selamat Datang, nama! 👋</h3>
                 <p>Kelola data sekolah Anda dengan lebih efisien dan cepat melalui panel kontrol ini.</p>
             </div>
             <img src="https://illustrations.popsy.co/gray/dashboard.svg" alt="welcome" class="welcome-img">
@@ -197,15 +197,23 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($datajurusan as $itemjurusan)
                         <tr>
-                            <td>1</td>
-                            <td>Rekayasa Perangkat Lunak</td>
-                            <td><span class="badge purple">RPL</span></td>
+                            <td>{{ $itemjurusan->id }}</td>
+                            <td>{{ $itemjurusan->nama_jurusan }}</td>
+                            <td><span class="badge purple">{{ $itemjurusan->kode_jurusan }}</span></td>
                             <td class="text-right">
                                 <button class="btn-icon btn-edit"><i class="fas fa-edit"></i></button>
-                                <button class="btn-icon btn-delete"><i class="fas fa-trash"></i></button>
+                                <form action="{{ route('deletejurusan', $itemjurusan->id) }}" method="POST" style="display:inline;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn-icon btn-delete" onclick="return confirm('Yakin mau hapus?')">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </form>
                             </td>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
@@ -232,7 +240,7 @@ function switchTab(event, id){
     document.getElementById(id).classList.add('active');
     // Add active class to clicked menu
     event.currentTarget.classList.add('active');
-    
+
     // Update Title
     const titles = {
         'dashboard': 'Dashboard Overview',
@@ -320,8 +328,8 @@ body { background: var(--background); color: var(--text-main); display: flex; }
 }
 
 .header-left { display: flex; align-items: center; gap: 15px; }
-.toggle-btn { 
-    display: none; border: none; background: var(--white); 
+.toggle-btn {
+    display: none; border: none; background: var(--white);
     padding: 8px 12px; border-radius: 8px; cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
